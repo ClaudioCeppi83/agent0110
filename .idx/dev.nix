@@ -1,21 +1,30 @@
 # To learn more about how to use Nix to configure your environment
 # see: https://firebase.google.com/docs/studio/customize-workspace
-{ ... }: {
+{pkgs, ... }: {
 	# Which nixpkgs channel to use.
 	channel = "stable-24.05"; # or "unstable"
 	# Use https://search.nixos.org/packages to find packages
 	packages = [
-		# pkgs.go
-		# pkgs.python311
-		# pkgs.python311Packages.pip
-		# pkgs.nodejs_20
-		# pkgs.nodePackages.nodemon
+		(pkgs.python312.withPackages (ps: with ps; [
+			pyqt6
+			pyte
+			fastapi
+			uvicorn
+			python-multipart
+			
+		]))
+		pkgs.qt6.qtbase
 	];
 	# Sets environment variables in the workspace
-	env = {};
+	env = {
+		PYTHONPATH = "${toString ./.}";
+		QT_QPA_PLATFORM = "offscreen";  # Modo sin display
+		QT_PLUGIN_PATH = "${pkgs.qt6.qtbase}/${pkgs.qt6.qtbase.qtPluginPrefix}";
+	};
 	idx = {
 		# Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
 		extensions = [
+			"ms-python.python"  # Extensión oficial de Python para VS Code
 			# "vscodevim.vim"
 		];
 		# Enable previews
