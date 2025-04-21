@@ -1,4 +1,11 @@
 {
-    "IDX.aI.enableInlineCompletion": true,
-    "IDX.aI.enableCodebaseIndexing": true
+	"IDX.aI.enableInlineCompletion": true,
+	"IDX.aI.enableCodebaseIndexing": true,
+	"editor.renderWhitespace": "all",
+	"files.trimTrailingWhitespace": true,
+	"editor.formatOnSave": true,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"editor.stickyScroll.enabled": false,
+	"editor.fontFamily": "Fira Code",
 }
