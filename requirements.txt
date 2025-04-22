@@ -1,0 +1,6 @@
+# requirements.txt
+pytest==7.4.0  # Framework para testing
+pytest-cov==4.1.0  # Cobertura de código
+black==23.7.0  # Formateador de código
+flake8==6.0.0  # Linter para PEP8
+mypy==1.4.1  # Chequeo estático de tipos
